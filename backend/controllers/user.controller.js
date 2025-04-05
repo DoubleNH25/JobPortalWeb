@@ -119,9 +119,13 @@ export const updateProfile = async (req, res) => {
         // cloudinary 
         const fileUri = getDataUri(file);
         const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
-
-
-
+        // const cloudResponse = await cloudinary.uploader.upload(fileUri.content, {
+        //     folder: "resumes",
+        //     resource_type: "raw",
+        //     public_id: file.originalname.split(".")[0], // tên gốc không đuôi
+        //     format: "pdf", // ép định dạng nếu bạn chắc chắn file là PDF
+        //   });
+          
         let skillsArray;
         if(skills){
             skillsArray = skills.split(",");
